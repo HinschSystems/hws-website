@@ -17,3 +17,6 @@ The current GitHub site is reference material, not the visual or architectural f
 
 ### Working rule
 Reuse ideas and assets selectively. Do not inherit the current site's visual language, page hierarchy, or implementation architecture simply because they already exist.
+
+## Preview deployment trigger
+Vercel preview project connected on 2026-10-05. Development work continues on `final-development`; production remains untouched.
