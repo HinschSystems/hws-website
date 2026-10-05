@@ -662,18 +662,17 @@ footer .brand img{height:46px}
 }
 .founder-visual{
   min-height:510px;
-  background:#0d1830;
+  background:
+    radial-gradient(circle at 28% 35%,rgba(11,142,131,.18),transparent 28%),
+    linear-gradient(135deg,#20325b,#0d1830);
   position:relative;
   overflow:hidden;
 }
-.founder-visual img{
-  display:block;
-  width:100%;
-  height:100%;
-  min-height:510px;
-  object-fit:cover;
-  object-position:center 42%;
+.founder-visual .quote-mark{
+  position:absolute;left:36px;top:40px;
+  font-size:25px;line-height:1.08;font-style:italic;
 }
+.founder-visual .quote-mark span{color:#6de0d2}
 .founder-copy{
   padding:74px 64px;
   display:flex;
