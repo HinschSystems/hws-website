@@ -411,11 +411,26 @@ footer .brand img{height:46px}
 }
 .interface-screen{
   height:155px;
-  background:#eef4fb;
+  padding:12px;
+  background:linear-gradient(135deg,#132142,#20355e);
   overflow:hidden;
+}
+.interface-card:first-child .interface-screen{
+  background:linear-gradient(135deg,#0d1832,#16264d);
+}
+.screen-bar{
+  height:12px;border-radius:4px;background:rgba(255,255,255,.12);margin-bottom:9px;
+}
+.screen-row{display:grid;grid-template-columns:28% 1fr;gap:7px;height:105px}
+.screen-nav{border-radius:5px;background:rgba(255,255,255,.08)}
+.screen-main{display:grid;grid-template-rows:36px 1fr;gap:7px}
+.screen-main div{border-radius:5px;background:rgba(255,255,255,.08)}
+.interface-screen.has-configured-image{
+  padding:0;
+  background:#eef4fb;
   border-bottom:1px solid var(--line);
 }
-.interface-screen img{
+.interface-screen.has-configured-image img{
   display:block;
   width:100%;
   height:100%;
@@ -668,7 +683,12 @@ footer .brand img{height:46px}
   position:relative;
   overflow:hidden;
 }
-.founder-visual img{
+.founder-visual .quote-mark{
+  position:absolute;left:36px;top:40px;
+  font-size:25px;line-height:1.08;font-style:italic;
+}
+.founder-visual .quote-mark span{color:#6de0d2}
+.founder-visual.has-configured-image img{
   display:block;
   width:100%;
   height:100%;
@@ -767,7 +787,7 @@ footer small{color:#b4c0df}
   .approach-wrap{grid-template-columns:1fr}
   .founder-grid{grid-template-columns:1fr}
   .founder-visual{min-height:360px}
-  .founder-visual img{min-height:360px}
+  .founder-visual.has-configured-image img{min-height:360px}
 }
 @media(max-width:720px){
   .shell{width:min(var(--max),calc(100% - 28px))}

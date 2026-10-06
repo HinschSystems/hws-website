@@ -30,6 +30,7 @@
 <link rel="preload" href="/assets/fonts/archivo-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/styles.css">
 <script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/graphics-loader.js" defer></script>
 
 <script type="application/ld+json">
 {
@@ -197,8 +198,12 @@
 
       <div class="interface-grid">
         <article class="interface-card">
-          <div class="interface-screen">
-            <img src="/assets/img/workspace-v2.webp" alt="" width="448" height="337" loading="lazy" decoding="async">
+          <div class="interface-screen" data-graphic-slot="workspace" aria-hidden="true">
+            <div class="screen-bar"></div>
+            <div class="screen-row">
+              <div class="screen-nav"></div>
+              <div class="screen-main"><div></div><div></div></div>
+            </div>
           </div>
           <div class="interface-copy">
             <h3>Operating Workspaces</h3>
@@ -207,8 +212,12 @@
         </article>
 
         <article class="interface-card">
-          <div class="interface-screen">
-            <img src="/assets/img/portal-v2.webp" alt="" width="418" height="339" loading="lazy" decoding="async">
+          <div class="interface-screen" data-graphic-slot="portal" aria-hidden="true">
+            <div class="screen-bar"></div>
+            <div class="screen-row">
+              <div class="screen-nav"></div>
+              <div class="screen-main"><div></div><div></div></div>
+            </div>
           </div>
           <div class="interface-copy">
             <h3>Customer &amp; Client Portals</h3>
@@ -217,8 +226,12 @@
         </article>
 
         <article class="interface-card">
-          <div class="interface-screen">
-            <img src="/assets/img/workflow-v2.webp" alt="" width="444" height="337" loading="lazy" decoding="async">
+          <div class="interface-screen" data-graphic-slot="workflow" aria-hidden="true">
+            <div class="screen-bar"></div>
+            <div class="screen-row">
+              <div class="screen-nav"></div>
+              <div class="screen-main"><div></div><div></div></div>
+            </div>
           </div>
           <div class="interface-copy">
             <h3>Queues &amp; Workflow Interfaces</h3>
@@ -227,8 +240,12 @@
         </article>
 
         <article class="interface-card">
-          <div class="interface-screen">
-            <img src="/assets/img/control-v2.webp" alt="" width="431" height="391" loading="lazy" decoding="async">
+          <div class="interface-screen" data-graphic-slot="control" aria-hidden="true">
+            <div class="screen-bar"></div>
+            <div class="screen-row">
+              <div class="screen-nav"></div>
+              <div class="screen-main"><div></div><div></div></div>
+            </div>
           </div>
           <div class="interface-copy">
             <h3>Management &amp; Control</h3>
@@ -237,8 +254,12 @@
         </article>
 
         <article class="interface-card">
-          <div class="interface-screen">
-            <img src="/assets/img/ai-v2.webp" alt="" width="421" height="390" loading="lazy" decoding="async">
+          <div class="interface-screen" data-graphic-slot="ai" aria-hidden="true">
+            <div class="screen-bar"></div>
+            <div class="screen-row">
+              <div class="screen-nav"></div>
+              <div class="screen-main"><div></div><div></div></div>
+            </div>
           </div>
           <div class="interface-copy">
             <h3>AI Interfaces</h3>
@@ -442,8 +463,8 @@
 
   <section class="founder" id="founder">
     <div class="founder-grid">
-      <div class="founder-visual">
-        <img src="/assets/img/founder-v2.webp" alt="HWS point-of-view concept: operating ideas mapped from people, process, and technology to real outcomes." width="443" height="395" loading="lazy" decoding="async">
+      <div class="founder-visual" data-graphic-slot="founder">
+        <div class="quote-mark">Systems for<br><span>real work.</span></div>
       </div>
       <div class="founder-copy">
         <div class="eyebrow">A point of view behind the work</div>

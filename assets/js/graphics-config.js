@@ -1,0 +1,74 @@
+(() => {
+  const KEY = 'hwsGraphicsConfigV1';
+  const form = document.getElementById('graphics-form');
+  const clear = document.getElementById('clear-graphics');
+  const message = document.getElementById('save-message');
+  if (!form) return;
+
+  const names = ['workspace','portal','workflow','control','ai','founder'];
+
+  const read = () => {
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; }
+    catch (_) { return {}; }
+  };
+
+  const validUrl = value => {
+    if (!value) return true;
+    try {
+      const url = new URL(value);
+      return url.protocol === 'https:' || url.protocol === 'http:';
+    } catch (_) {
+      return false;
+    }
+  };
+
+  const populate = () => {
+    const config = read();
+    names.forEach(name => {
+      const input = form.elements[name];
+      input.value = config[name] || '';
+    });
+  };
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    const next = {};
+    let invalid = false;
+
+    names.forEach(name => {
+      const input = form.elements[name];
+      const value = input.value.trim();
+      const status = document.querySelector('[data-status="' + name + '"]');
+      status.textContent = '';
+
+      if (!validUrl(value)) {
+        invalid = true;
+        input.setAttribute('aria-invalid','true');
+        status.textContent = 'Enter a full http:// or https:// image URL.';
+      } else {
+        input.removeAttribute('aria-invalid');
+        if (value) next[name] = value;
+      }
+    });
+
+    if (invalid) {
+      message.textContent = 'Fix the highlighted URL field before saving.';
+      return;
+    }
+
+    localStorage.setItem(KEY, JSON.stringify(next));
+    message.textContent = 'Saved. Open or refresh the homepage on this same domain to see the selected graphics.';
+  });
+
+  clear.addEventListener('click', () => {
+    localStorage.removeItem(KEY);
+    form.reset();
+    names.forEach(name => {
+      const status = document.querySelector('[data-status="' + name + '"]');
+      if (status) status.textContent = '';
+    });
+    message.textContent = 'Cleared. The homepage will show the clean placeholders again after refresh.';
+  });
+
+  populate();
+})();

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>HWS Graphics Configurator</title>
+<link rel="icon" href="/assets/img/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="stylesheet" href="/assets/css/graphics-config.css">
+<script src="/assets/js/graphics-config.js" defer></script>
+</head>
+<body class="graphics-config-page">
+<main class="graphics-config">
+  <div class="shell">
+    <header class="graphics-config-head">
+      <a class="brand" href="/"><img src="/assets/img/logo-lockup.png" alt="Hinsch Web Systems" width="474" height="108"></a>
+      <div>
+        <div class="eyebrow">Internal visual tool</div>
+        <h1>Homepage graphics configurator</h1>
+        <p>Paste an image URL for any slot, save, then open the homepage. Empty fields leave the clean placeholder in place.</p>
+      </div>
+    </header>
+
+    <section class="config-panel" aria-labelledby="slot-sheet-title">
+      <div class="config-section-head">
+        <div>
+          <div class="eyebrow">Slot sheet</div>
+          <h2 id="slot-sheet-title">What each frame needs</h2>
+        </div>
+        <p>These dimensions describe the live frame, not the master artwork size.</p>
+      </div>
+      <div class="slot-table-wrap">
+        <table class="slot-table">
+          <thead><tr><th>Slot</th><th>Desktop frame</th><th>What it needs</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Operating Workspaces</strong></td><td>~253 × 155 px</td><td>Shared operating view: work items, owners, state, priority, next action, exceptions.</td></tr>
+            <tr><td><strong>Customer &amp; Client Portals</strong></td><td>~220 × 155 px</td><td>External-facing place for account state, tasks, payment/status, documents, requests, or progress.</td></tr>
+            <tr><td><strong>Queues &amp; Workflow Interfaces</strong></td><td>~220 × 155 px</td><td>Incoming work moving through assignment, active state, verification, and completion.</td></tr>
+            <tr><td><strong>Management &amp; Control</strong></td><td>~220 × 155 px</td><td>Exceptions, approvals, blocked work, oversight, verification, health, escalation.</td></tr>
+            <tr><td><strong>AI Interfaces</strong></td><td>~220 × 155 px</td><td>Governed conversation tied to operational state, permitted actions, and human approval boundaries.</td></tr>
+            <tr><td><strong>Founder / Point of View</strong></td><td>42.5% viewport × 510 px min</td><td>Restrained editorial visual. At ≤1040 px it stacks full width with a 360 px minimum height.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <form id="graphics-form" class="config-panel">
+      <div class="config-section-head">
+        <div>
+          <div class="eyebrow">URL form</div>
+          <h2>Swap graphics</h2>
+        </div>
+        <p>Use direct HTTPS image URLs. Settings are saved only in this browser on this site origin.</p>
+      </div>
+
+      <div class="graphic-fields">
+        <label class="graphic-field">
+          <span><strong>Operating Workspaces</strong><small>~253 × 155 px · shared operating view</small></span>
+          <input type="url" name="workspace" placeholder="https://…/operating-workspace.png" autocomplete="off">
+          <span class="url-status" data-status="workspace"></span>
+        </label>
+
+        <label class="graphic-field">
+          <span><strong>Customer &amp; Client Portals</strong><small>~220 × 155 px · external-facing portal</small></span>
+          <input type="url" name="portal" placeholder="https://…/client-portal.png" autocomplete="off">
+          <span class="url-status" data-status="portal"></span>
+        </label>
+
+        <label class="graphic-field">
+          <span><strong>Queues &amp; Workflow Interfaces</strong><small>~220 × 155 px · work moving through state</small></span>
+          <input type="url" name="workflow" placeholder="https://…/workflow.png" autocomplete="off">
+          <span class="url-status" data-status="workflow"></span>
+        </label>
+
+        <label class="graphic-field">
+          <span><strong>Management &amp; Control</strong><small>~220 × 155 px · oversight, approvals, exceptions</small></span>
+          <input type="url" name="control" placeholder="https://…/management-control.png" autocomplete="off">
+          <span class="url-status" data-status="control"></span>
+        </label>
+
+        <label class="graphic-field">
+          <span><strong>AI Interfaces</strong><small>~220 × 155 px · governed AI interaction</small></span>
+          <input type="url" name="ai" placeholder="https://…/ai-interface.png" autocomplete="off">
+          <span class="url-status" data-status="ai"></span>
+        </label>
+
+        <label class="graphic-field">
+          <span><strong>Founder / Point of View</strong><small>42.5% viewport × 510 px min · editorial visual</small></span>
+          <input type="url" name="founder" placeholder="https://…/founder-visual.png" autocomplete="off">
+          <span class="url-status" data-status="founder"></span>
+        </label>
+      </div>
+
+      <div class="config-actions">
+        <button class="btn dark" type="submit">Save URLs</button>
+        <button class="btn reset-button" type="button" id="clear-graphics">Clear all</button>
+        <a class="btn homepage-button" href="/" target="_blank" rel="noopener">Open homepage ↗</a>
+      </div>
+      <p class="save-message" id="save-message" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</main>
+</body>
+</html>
