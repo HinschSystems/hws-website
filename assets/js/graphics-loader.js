@@ -16,24 +16,34 @@
     return;
   }
 
+  const allowedUrl = value => {
+    if (!value) return false;
+    if (value.startsWith('/assets/img/graphics/')) return true;
+    return /^https?:\/\//i.test(value);
+  };
+
   Object.entries(slots).forEach(([name, meta]) => {
     const url = typeof config[name] === 'string' ? config[name].trim() : '';
-    if (!/^https?:\/\//i.test(url)) return;
+    if (!allowedUrl(url)) return;
 
     const frame = document.querySelector('[data-graphic-slot="' + name + '"]');
     if (!frame) return;
 
     const img = document.createElement('img');
-    img.src = url;
     img.alt = meta.alt;
     img.loading = 'lazy';
     img.decoding = 'async';
-    img.addEventListener('error', () => {
-      window.location.reload();
+
+    img.addEventListener('load', () => {
+      frame.replaceChildren(img);
+      frame.classList.add('has-configured-image');
+      frame.removeAttribute('aria-hidden');
     }, { once: true });
 
-    frame.replaceChildren(img);
-    frame.classList.add('has-configured-image');
-    frame.removeAttribute('aria-hidden');
+    img.addEventListener('error', () => {
+      console.warn('HWS graphic failed to load:', name, url);
+    }, { once: true });
+
+    img.src = url;
   });
 })();

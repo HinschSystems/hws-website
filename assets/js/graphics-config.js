@@ -73,7 +73,8 @@
     }
 
     localStorage.setItem(KEY, JSON.stringify(next));
-    message.textContent = 'Saved. Open or refresh the homepage on this same domain to see the selected graphics.';
+    message.textContent = 'Saved. Opening the homepage with your selected graphics…';
+    window.open('/?graphics-preview=' + Date.now(), '_blank', 'noopener');
   });
 
   clear.addEventListener('click', () => {
@@ -83,7 +84,8 @@
       const status = document.querySelector('[data-status="' + name + '"]');
       if (status) status.textContent = '';
     });
-    message.textContent = 'Cleared. The homepage will show the clean placeholders again after refresh.';
+    message.textContent = 'Cleared. Opening the clean placeholder version…';
+    window.open('/?graphics-preview=' + Date.now(), '_blank', 'noopener');
   });
 
   populate();
