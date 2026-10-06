@@ -69,6 +69,7 @@
 }
 .graphic-field > span:first-child{display:grid;gap:4px;color:var(--navy)}
 .graphic-field small{color:var(--gray);font-size:11px;font-weight:500}
+.graphic-field select,
 .graphic-field input{
   width:100%;
   min-height:46px;
@@ -78,7 +79,17 @@
   background:white;
   color:var(--ink);
 }
+.graphic-field select:focus,
 .graphic-field input:focus{border-color:var(--teal)}
+.graphic-field select{
+  grid-column:2;
+  padding:11px 13px;
+  border:1px solid #cbd7eb;
+  border-radius:8px;
+  background:white;
+  color:var(--navy);
+  font-weight:700;
+}
 .graphic-field input[aria-invalid="true"]{border-color:var(--coral)}
 .url-status{
   grid-column:2;
@@ -97,6 +108,7 @@
   .config-section-head{display:block}
   .config-section-head > p{margin-top:10px}
   .graphic-field{grid-template-columns:1fr}
+  .graphic-field select{grid-column:1}
   .url-status{grid-column:1}
   .config-panel{padding:20px}
 }

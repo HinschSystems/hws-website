@@ -18,7 +18,7 @@
       <div>
         <div class="eyebrow">Internal visual tool</div>
         <h1>Homepage graphics configurator</h1>
-        <p>Paste an image URL for any slot, save, then open the homepage. Empty fields leave the clean placeholder in place.</p>
+        <p>Choose one of the hosted HWS presets or paste any direct image URL. Save, then open the homepage. Empty fields leave the clean placeholder in place.</p>
       </div>
     </header>
 
@@ -57,36 +57,68 @@
       <div class="graphic-fields">
         <label class="graphic-field">
           <span><strong>Operating Workspaces</strong><small>~253 × 155 px · shared operating view</small></span>
+          <select class="preset-select" data-preset-for="workspace" aria-label="Operating Workspaces preset">
+            <option value="">Choose hosted preset…</option>
+            <option value="/assets/img/graphics/01_operating_workspaces_A_253x155.png">Preset A</option>
+            <option value="/assets/img/graphics/01_operating_workspaces_B_253x155.png">Preset B</option>
+            <option value="/assets/img/graphics/01_operating_workspaces_C_253x155.png">Preset C</option>
+          </select>
           <input type="url" name="workspace" placeholder="https://…/operating-workspace.png" autocomplete="off">
           <span class="url-status" data-status="workspace"></span>
         </label>
 
         <label class="graphic-field">
           <span><strong>Customer &amp; Client Portals</strong><small>~220 × 155 px · external-facing portal</small></span>
+          <select class="preset-select" data-preset-for="portal" aria-label="Customer and Client Portals preset">
+            <option value="">Choose hosted preset…</option>
+            <option value="/assets/img/graphics/02_customer_client_portals_A_220x155.png">Preset A</option>
+          </select>
           <input type="url" name="portal" placeholder="https://…/client-portal.png" autocomplete="off">
           <span class="url-status" data-status="portal"></span>
         </label>
 
         <label class="graphic-field">
           <span><strong>Queues &amp; Workflow Interfaces</strong><small>~220 × 155 px · work moving through state</small></span>
+          <select class="preset-select" data-preset-for="workflow" aria-label="Queues and Workflow Interfaces preset">
+            <option value="">Choose hosted preset…</option>
+            <option value="/assets/img/graphics/03_queues_workflow_interfaces_A_220x155.png">Preset A</option>
+            <option value="/assets/img/graphics/03_queues_workflow_interfaces_B_220x155.png">Preset B</option>
+            <option value="/assets/img/graphics/03_queues_workflow_interfaces_C_220x155.png">Preset C</option>
+          </select>
           <input type="url" name="workflow" placeholder="https://…/workflow.png" autocomplete="off">
           <span class="url-status" data-status="workflow"></span>
         </label>
 
         <label class="graphic-field">
           <span><strong>Management &amp; Control</strong><small>~220 × 155 px · oversight, approvals, exceptions</small></span>
+          <select class="preset-select" data-preset-for="control" aria-label="Management and Control preset">
+            <option value="">Choose hosted preset…</option>
+            <option value="/assets/img/graphics/04_management_control_A_220x155.png">Preset A</option>
+            <option value="/assets/img/graphics/04_management_control_B_220x155.png">Preset B</option>
+          </select>
           <input type="url" name="control" placeholder="https://…/management-control.png" autocomplete="off">
           <span class="url-status" data-status="control"></span>
         </label>
 
         <label class="graphic-field">
           <span><strong>AI Interfaces</strong><small>~220 × 155 px · governed AI interaction</small></span>
+          <select class="preset-select" data-preset-for="ai" aria-label="AI Interfaces preset">
+            <option value="">Choose hosted preset…</option>
+            <option value="/assets/img/graphics/05_ai_interfaces_A_220x155.png">Preset A</option>
+            <option value="/assets/img/graphics/05_ai_interfaces_B_220x155.png">Preset B</option>
+          </select>
           <input type="url" name="ai" placeholder="https://…/ai-interface.png" autocomplete="off">
           <span class="url-status" data-status="ai"></span>
         </label>
 
         <label class="graphic-field">
           <span><strong>Founder / Point of View</strong><small>42.5% viewport × 510 px min · editorial visual</small></span>
+          <select class="preset-select" data-preset-for="founder" aria-label="Founder Point of View preset">
+            <option value="">Choose hosted preset…</option>
+            <option value="/assets/img/graphics/06_founder_point_of_view_A_870x510.png">Preset A</option>
+            <option value="/assets/img/graphics/06_founder_point_of_view_B_870x510.png">Preset B</option>
+            <option value="/assets/img/graphics/06_founder_point_of_view_C_870x510.png">Preset C</option>
+          </select>
           <input type="url" name="founder" placeholder="https://…/founder-visual.png" autocomplete="off">
           <span class="url-status" data-status="founder"></span>
         </label>

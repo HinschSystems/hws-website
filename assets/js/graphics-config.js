@@ -6,6 +6,7 @@
   if (!form) return;
 
   const names = ['workspace','portal','workflow','control','ai','founder'];
+  const presets = [...document.querySelectorAll('[data-preset-for]')];
 
   const read = () => {
     try { return JSON.parse(localStorage.getItem(KEY) || '{}') || {}; }
@@ -14,6 +15,7 @@
 
   const validUrl = value => {
     if (!value) return true;
+    if (value.startsWith('/assets/img/graphics/')) return true;
     try {
       const url = new URL(value);
       return url.protocol === 'https:' || url.protocol === 'http:';
@@ -26,9 +28,23 @@
     const config = read();
     names.forEach(name => {
       const input = form.elements[name];
-      input.value = config[name] || '';
+      const value = config[name] || '';
+      input.value = value;
+      const select = document.querySelector('[data-preset-for="' + name + '"]');
+      if (select) {
+        select.value = [...select.options].some(option => option.value === value) ? value : '';
+      }
     });
   };
+
+  presets.forEach(select => {
+    select.addEventListener('change', () => {
+      const name = select.dataset.presetFor;
+      const input = form.elements[name];
+      if (!input) return;
+      if (select.value) input.value = select.value;
+    });
+  });
 
   form.addEventListener('submit', event => {
     event.preventDefault();
@@ -44,7 +60,7 @@
       if (!validUrl(value)) {
         invalid = true;
         input.setAttribute('aria-invalid','true');
-        status.textContent = 'Enter a full http:// or https:// image URL.';
+        status.textContent = 'Choose a hosted preset or enter a full http:// or https:// image URL.';
       } else {
         input.removeAttribute('aria-invalid');
         if (value) next[name] = value;
