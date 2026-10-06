@@ -668,11 +668,14 @@ footer .brand img{height:46px}
   position:relative;
   overflow:hidden;
 }
-.founder-visual .quote-mark{
-  position:absolute;left:36px;top:40px;
-  font-size:25px;line-height:1.08;font-style:italic;
+.founder-visual img{
+  display:block;
+  width:100%;
+  height:100%;
+  min-height:510px;
+  object-fit:cover;
+  object-position:center;
 }
-.founder-visual .quote-mark span{color:#6de0d2}
 .founder-copy{
   padding:74px 64px;
   display:flex;
@@ -764,6 +767,7 @@ footer small{color:#b4c0df}
   .approach-wrap{grid-template-columns:1fr}
   .founder-grid{grid-template-columns:1fr}
   .founder-visual{min-height:360px}
+  .founder-visual img{min-height:360px}
 }
 @media(max-width:720px){
   .shell{width:min(var(--max),calc(100% - 28px))}
