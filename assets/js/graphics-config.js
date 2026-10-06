@@ -74,7 +74,7 @@
 
     localStorage.setItem(KEY, JSON.stringify(next));
     message.textContent = 'Saved. Opening the homepage with your selected graphics…';
-    window.open('/?graphics-preview=' + Date.now(), '_blank', 'noopener');
+    window.location.href = '/?graphics-preview=' + Date.now();
   });
 
   clear.addEventListener('click', () => {
@@ -85,7 +85,7 @@
       if (status) status.textContent = '';
     });
     message.textContent = 'Cleared. Opening the clean placeholder version…';
-    window.open('/?graphics-preview=' + Date.now(), '_blank', 'noopener');
+    window.location.href = '/?graphics-preview=' + Date.now();
   });
 
   populate();
